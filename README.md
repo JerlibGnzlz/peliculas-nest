@@ -119,7 +119,7 @@ npm run test
 
 ## Usuarios de Prueba
 
-Se han creado dos usuarios con diferentes roles:
+Se han creado un usuario con el rol Admin:
 
 **Administrador (ADMIN):**
 
