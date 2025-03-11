@@ -4,15 +4,18 @@ import { CreateMovieDto } from "./dto/create-movie.dto";
 import { UpdateMovieDto } from "./dto/update-movie.dto";
 import { HttpService } from "@nestjs/axios";
 import { firstValueFrom } from "rxjs";
+import { ConfigService } from "@nestjs/config";
 
 @Injectable()
 export class MoviesService {
-    private readonly swapiApiUrl = process.env.SWAPI_API_URL || "https://swapi.dev/api/films/";
-
+    private readonly swapiApiUrl: string;
     constructor(
         private prisma: PrismaService,
         private httpService: HttpService,
-    ) { }
+        private configService: ConfigService,
+    ) {
+        this.swapiApiUrl = this.configService.get<string>('SWAPI_API_URL', 'https://swapi.dev/api/films/');
+    }
 
     async create(createMovieDto: CreateMovieDto) {
         try {
