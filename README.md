@@ -125,9 +125,9 @@ Se han creado un usuario con el rol Admin:
 
 ```json
 {
-  "name": "admin",
-  "email": "ad@gmail.com",
-  "password": "123456",
+  "name": "dmin User",
+  "email": "admin@example.com",
+  "password": "admin123",
   "role": "ADMIN"
 }
 ```
