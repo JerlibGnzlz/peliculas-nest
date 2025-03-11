@@ -132,15 +132,7 @@ Se han creado dos usuarios con diferentes roles:
 }
 ```
 
-**Usuario Regular (USER):**
 
-```json
-{
-  "email": "admin@gmail.com",
-  "password": "123456",
-  "role": "USER"
-}
-```
 
 
 
