@@ -110,6 +110,9 @@ npm run test
 
 ### Desarrollo (Local)
 
+- Local: [`http://localhost:3001/movies/swapi`](http://localhost:3001/movies/swapi)
+
+
 - Swagger UI: [`http://localhost:3001/api`](http://localhost:3001/api)
 
 ## Usuarios de Prueba
@@ -137,11 +140,5 @@ Se han creado dos usuarios con diferentes roles:
 }
 ```
 
-## Contribuciones
 
-Las contribuciones son bienvenidas. Si deseas contribuir, por favor abre un issue o un pull request.
-
-## Licencia
-
-Este proyecto está bajo la licencia MIT.
 
