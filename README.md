@@ -22,77 +22,126 @@
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
 ## Description
+# PeliculasNest
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+PeliculasNest es una API desarrollada con NestJS que permite gestionar películas, integrándose con la API de Star Wars (SWAPI) y autenticación basada en JWT.
 
-## Project setup
+## Requisitos Previos
 
-```bash
-$ npm install
+Antes de comenzar, asegúrate de tener instalado:
+
+- [Node.js](https://nodejs.org/) (versión recomendada: 18+)
+- [PostgreSQL](https://www.postgresql.org/)
+
+
+## Instalación
+
+1. Clona el repositorio:
+
+   ```sh
+   git clone https://github.com/JerlibGnzlz/peliculasNest
+   cd peliculasNest
+   ```
+
+2. Instala las dependencias:
+
+   ```sh
+   npm install
+   ```
+
+## Configuración del Entorno
+
+Crea un archivo `.env` en la raíz del proyecto con el siguiente contenido:
+
+```env
+DATABASE_URL="postgresql://postgres:xxxxx@localhost:5432/starwars"
+JWT_SECRET="secret"
+SWAPI_API_URL="https://swapi.dev/api/films/"
+PORT=3001
 ```
 
-## Compile and run the project
+Para el entorno de producción, usa:
 
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+```env
+DATABASE_URL="postgresql://movienest_user:u8AB1kPbkbjd5vnnosMZgVn0B1mlMaPB@dpg-cv7n98tds78s73cobl40-a.oregon-postgres.render.com/movienest"
 ```
 
-## Run tests
+## Ejecutar la Aplicación
 
-```bash
-# unit tests
-$ npm run test
+### Modo Desarrollo
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+```sh
+npm run start
 ```
 
-## Deployment
+La aplicación estará disponible en `http://localhost:3001`
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+### Modo Producción
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ npm install -g mau
-$ mau deploy
+```sh
+npm run build
+npm run start:prod
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+## Migraciones y Seed de Prisma
 
-## Resources
+1. Generar la migración de Prisma:
+   ```sh
+   npx prisma migrate dev --name init
+   ```
+2. Subir el seed a la base de datos:
+   ```sh
+   npx prisma db seed
+   ```
 
-Check out a few resources that may come in handy when working with NestJS:
+## Pruebas
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+Ejecutar las pruebas con Jest:
 
-## Support
+```sh
+npm run test
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## Endpoints
 
-## Stay in touch
+### Producción (Deploy en Render)
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Endpoint de películas SWAPI: [`https://peliculasnest.onrender.com/movies/swapi`](https://peliculasnest.onrender.com/movies/swapi)
 
-## License
+### Desarrollo (Local)
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+- Swagger UI: [`http://localhost:3001/api`](http://localhost:3001/api)
+
+## Usuarios de Prueba
+
+Se han creado dos usuarios con diferentes roles:
+
+**Administrador (ADMIN):**
+
+```json
+{
+  "name": "admin",
+  "email": "ad@gmail.com",
+  "password": "123456",
+  "role": "ADMIN"
+}
+```
+
+**Usuario Regular (USER):**
+
+```json
+{
+  "email": "admin@gmail.com",
+  "password": "123456",
+  "role": "USER"
+}
+```
+
+## Contribuciones
+
+Las contribuciones son bienvenidas. Si deseas contribuir, por favor abre un issue o un pull request.
+
+## Licencia
+
+Este proyecto está bajo la licencia MIT.
+
