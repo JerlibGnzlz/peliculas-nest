@@ -87,11 +87,13 @@ npm run start:prod
 
 1. Generar la migración de Prisma:
    ```sh
-   npx prisma migrate dev --name init
+   npx prisma migrate dev
+   npx prisma generate
    ```
 2. Subir el seed a la base de datos:
    ```sh
-   npx prisma db seed
+   npx prisma migrate dev --name init
+
    ```
 
 ## Pruebas
